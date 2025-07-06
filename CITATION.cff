@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use mcalib-ripple, please cite it as below."
+title: "mcalib-ripple: Precision Absolute Magnitude Calibration for Ripple-Modulated Cosmologies Using Pantheon+"
+authors:
+  - family-names: Greene
+    given-names: Richard
+    affiliation: "Genesis Field Institute, Chandler, AZ, USA"
+date-released: "2025-07-05"
+version: "1.0.0"
+doi: "<insert-your-zenodo-doi-here>"
+url: "https://github.com/genesisfield/mcalib-ripple"
+license: "MIT"
+keywords:
+  - cosmology
+  - Pantheon+
+  - ripple cosmology
+  - magnitude calibration
+  - MCMC
+  - Type Ia Supernovae
+references:
+  - type: article
+    authors:
+      - family-names: Brout
+        given-names: D.
+      - family-names: Scolnic
+        given-names: D.
+    year: 2022
+    title: "Cosmology with the Pantheon+ Type Ia Supernova Sample"
+    journal: "The Astrophysical Journal"
+    volume: 938
+    page: 110
+    doi: "10.3847/1538-4357/ac8e04"
+  - type: article
+    authors:
+      - family-names: Riess
+        given-names: A. G.
+    year: 2021
+    title: "A Comprehensive Measurement of the Local Value of the Hubble Constant"
+    journal: "The Astrophysical Journal Letters"
+    volume: 934
+    page: L7
+    doi: "10.3847/2041-8213/ac5c5b"
+  - type: article
+    authors:
+      - family-names: Foreman-Mackey
+        given-names: D.
+    year: 2013
+    title: "emcee: The MCMC Hammer"
+    journal: "Publications of the Astronomical Society of the Pacific"
+    volume: 125
+    page: 306
+    doi: "10.1086/670067"
