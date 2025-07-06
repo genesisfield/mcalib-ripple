@@ -1,0 +1,2 @@
+Analytic M_locked = -0.12749 ± 0.00391 mag
+Adjusted M_locked = -0.07382 mag
