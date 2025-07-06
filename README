@@ -61,7 +61,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
 Built on the Pantheon+ and SH0ES datasets and the Python ecosystem (NumPy, SciPy, pandas, matplotlib, emcee).
 
-## References
+## References!
 
 - Brout et al. (2022). [Cosmology with Pantheon+](https://doi.org/10.3847/1538-4357/ac8e04)
 - Riess et al. (2021). [Local Hubble Constant Measurement](https://doi.org/10.3847/2041-8213/ac5c5b)
