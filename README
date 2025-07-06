@@ -1,8 +1,14 @@
 # mcalib-ripple
 
-![GitHub stars](https://img.shields.io/github/stars/genesisfield/mcalib-ripple?style=social)
-![Build](https://img.shields.io/badge/build-passing-brightgreen)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+<p align="left">
+  <a href="https://github.com/genesisfield/mcalib-ripple/stargazers">
+    <img src="https://img.shields.io/github/stars/genesisfield/mcalib-ripple?style=social" alt="GitHub stars"/>
+  </a>
+  <img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build status"/>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"/>
+  </a>
+</p>
 
 **Precision Calibration of Supernova Magnitudes Using Ripple-Modulated Cosmologies and the Pantheon+ Dataset**
 
