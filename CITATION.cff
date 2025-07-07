@@ -7,7 +7,7 @@ authors:
     affiliation: "Genesis Field Institute, Chandler, AZ, USA"
 date-released: "2025-07-05"
 version: "1.0.0"
-doi: "<insert-your-zenodo-doi-here>"
+doi: "10.5281/zenodo.15825901"
 url: "https://github.com/genesisfield/mcalib-ripple"
 license: "MIT"
 keywords:

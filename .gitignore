@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook checkpoints (if used later)
+.ipynb_checkpoints/
+
+# Output files
+outputs/
+*.png
+*.txt
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Test results (if generated)
+coverage.xml
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Logs
+*.log
+
+# Papers and LaTeX (optional)
+*.aux
+*.out
+*.pdf
+*.bbl
+*.blg
