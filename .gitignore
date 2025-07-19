@@ -9,39 +9,46 @@ __pycache__/
 env/
 venv/
 
-# Distribution / packaging
+# Build and distribution artifacts
 build/
 dist/
 *.egg-info/
 
-# Jupyter Notebook checkpoints (if used later)
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Output files
+# Output files and intermediate results
 outputs/
-*.png
-*.txt
+outputs/*.npy
+outputs/*.json
+outputs/*.png
+outputs/*.txt
+outputs/*.log
 
 # IDE/editor settings
 .vscode/
 .idea/
 
-# OS junk
+# OS-generated junk files
 .DS_Store
 Thumbs.db
 
-# Test results (if generated)
-coverage.xml
-htmlcov/
+# Coverage and test artifacts
+.coverage
 .tox/
 .pytest_cache/
+htmlcov/
+.mypy_cache/
 
-# Logs
-*.log
-
-# Papers and LaTeX (optional)
+# Papers and LaTeX artifacts (optional)
 *.aux
 *.out
+*.log
 *.pdf
 *.bbl
 *.blg
+*.tex
+
+# Temporary or swap files
+*.swp
+*~

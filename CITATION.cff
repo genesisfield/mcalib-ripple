@@ -1,22 +1,24 @@
 cff-version: 1.2.0
-message: "If you use mcalib-ripple, please cite it as below."
-title: "mcalib-ripple: Precision Absolute Magnitude Calibration for Ripple-Modulated Cosmologies Using Pantheon+"
+message: "If you use GENESISFIELDMCMC, please cite it as below."
+title: "GENESISFIELDMCMC: A Full Inference Pipeline for Ripple-Modulated Cosmologies Using Supernova and H(z) Data"
 authors:
   - family-names: Greene
     given-names: Richard
     affiliation: "Genesis Field Institute, Chandler, AZ, USA"
-date-released: "2025-07-05"
+date-released: "2025-07-17"
 version: "1.0.0"
 doi: "10.5281/zenodo.15825901"
-url: "https://github.com/genesisfield/mcalib-ripple"
+url: "https://github.com/genesisfield/genesisfieldmcmc"
 license: "MIT"
 keywords:
   - cosmology
+  - ripple model
+  - ΛCDM
   - Pantheon+
-  - ripple cosmology
-  - magnitude calibration
+  - supernovae
+  - Hubble tension
   - MCMC
-  - Type Ia Supernovae
+  - inference pipeline
 references:
   - type: article
     authors:
@@ -50,3 +52,37 @@ references:
     volume: 125
     page: 306
     doi: "10.1086/670067"
+  - type: article
+    authors:
+      - family-names: Ringermacher
+        given-names: H. I.
+      - family-names: Mead
+        given-names: L. R.
+    year: 2015
+    title: "Observation of discrete oscillations in a model-independent plot of cosmological scale factor vs. lookback time and scalar field model"
+    journal: "Astronomical Journal"
+    volume: 149
+    page: 137
+    doi: "10.1088/0004-6256/149/4/137"
+  - type: article
+    authors:
+      - family-names: Zhao
+        given-names: G.-B.
+    year: 2012
+    title: "Probing modifications of General Relativity using current cosmological observations"
+    journal: "Journal of Cosmology and Astroparticle Physics"
+    volume: 2012
+    issue: 10
+    page: 016
+    doi: "10.1088/1475-7516/2012/10/016"
+  - type: article
+    authors:
+      - family-names: Hu
+        given-names: W.
+    year: 2000
+    title: "Structure formation with generalized dark matter"
+    journal: "Physical Review D"
+    volume: 62
+    issue: 4
+    page: 043007
+    doi: "10.1103/PhysRevD.62.043007"
