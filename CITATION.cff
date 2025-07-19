@@ -7,7 +7,7 @@ authors:
     affiliation: "Genesis Field Institute, Chandler, AZ, USA"
 date-released: "2025-07-17"
 version: "1.1.0"
-doi: "10.5281/zenodo.16184185"
+doi: "10.5281/zenodo.15825901"
 url: "https://github.com/genesisfield/genesisfieldmcmc"
 license: "MIT"
 keywords:
