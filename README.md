@@ -2,7 +2,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/genesisfield/genesisfieldmcmc?style=social)](https://github.com/genesisfield/genesisfieldmcmc/stargazers)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](#)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15825901.svg)](https://doi.org/10.5281/zenodo.15825901)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16184185.svg)](https://doi.org/10.5281/zenodo.16184185)
 
 GENESISFIELDMCMC is a full-sequence cosmological inference pipeline for ripple-modulated expansion models derived from the Genesis Field framework. The ripple model arises from vacuum coherence decay described by a generalized Gross–Pitaevskii equation. In its constrained limit, the model reduces exactly to ΛCDM. This repository implements and tests the model using Pantheon+SH0ES supernova data and cosmic chronometer H(z) measurements.
 
