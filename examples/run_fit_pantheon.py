@@ -59,6 +59,7 @@ def main():
     chi2 = np.sum((residuals / sigma_mu) ** 2)
     aic = chi2 + 2 * k
     bic = chi2 + k * np.log(n)
+    rms = np.sqrt(np.mean(residuals**2))  # ✅ Correct RMS calculation
 
     # === Residual plot ===
     plt.figure(figsize=(10, 4))
@@ -77,7 +78,7 @@ def main():
     dL_check = dL_ripple(z_test, *best_fit)[0]
     mu_check = 5 * np.log10(dL_check) + 25 + M_locked
     print(f"✅ Sanity Check (z=0.1): μ = {mu_check:.2f} (expected ~38.3)")
-    print(f"✅ Residual mean = {np.mean(residuals):.5f}, RMS = {np.std(residuals):.5f}")
+    print(f"✅ Residual mean = {np.mean(residuals):.5f}, RMS = {rms:.5f}")
     print(f"χ²/dof = {chi2 / (n - k):.3f}")
 
     # === Save JSON summary ===
@@ -91,7 +92,7 @@ def main():
         "chi2_dof": chi2 / (n - k),
         "residuals": {
             "mean": float(np.mean(residuals)),
-            "rms": float(np.std(residuals))
+            "rms": float(rms)  # ✅ Use correct RMS
         },
         "sanity_check": {
             "mu(z=0.1)": float(mu_check)

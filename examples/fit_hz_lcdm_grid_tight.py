@@ -49,6 +49,10 @@ def estimate_uncertainty(x_vals, chi2_vals):
 
 sigma_H0 = estimate_uncertainty(H0_vals, chi2_vals)
 
+# === Compute true residual RMS
+residuals = Hz - Hz_LCDM(z, best_H0, fixed_Om)
+rms = np.sqrt(np.mean(residuals**2))  # ✅ FIXED from np.std(...)
+
 # === Save JSON summary
 summary = {
     "ΛCDM": {
@@ -64,7 +68,7 @@ summary = {
         "aic": float(aic),
         "bic": float(bic),
         "chi2_dof": float(best_chi2 / (n - 1)),
-        "residual_rms": float(np.std(Hz - Hz_LCDM(z, best_H0, fixed_Om))),
+        "residual_rms": float(rms),  # ✅ RMS now correct
         "n_params": 1
     }
 }
@@ -75,7 +79,6 @@ with open(os.path.join(out_dir, "hz_lcdm_grid_tight_fit_summary.json"), "w", enc
 print("✅ Saved hz_lcdm_grid_tight_fit_summary.json")
 
 # === Plot χ² vs H₀
-import matplotlib.pyplot as plt
 plt.figure(figsize=(8, 5))
 plt.plot(H0_vals, chi2_vals, label="χ²(H₀)")
 plt.axvline(best_H0, color="red", linestyle="--", label="Best-fit")

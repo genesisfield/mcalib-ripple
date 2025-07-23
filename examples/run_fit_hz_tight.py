@@ -110,7 +110,7 @@ chi2_lcdm = np.sum((resid_lcdm / sigma_Hz) ** 2)
 k_lcdm = 1
 aic_lcdm = chi2_lcdm + 2 * k_lcdm
 bic_lcdm = chi2_lcdm + k_lcdm * np.log(n_data)
-rms_lcdm = np.std(resid_lcdm)
+rms_lcdm = np.sqrt(np.mean(resid_lcdm**2))  # ✅ True RMS
 
 # === Genesis Field stats ===
 Hz_fit_genesis = ripple_Hz(z, *medians)
@@ -119,7 +119,7 @@ chi2_genesis = np.sum((resid_genesis / sigma_Hz) ** 2)
 k_genesis = ndim
 aic_genesis = chi2_genesis + 2 * k_genesis
 bic_genesis = chi2_genesis + k_genesis * np.log(n_data)
-rms_genesis = np.std(resid_genesis)
+rms_genesis = np.sqrt(np.mean(resid_genesis**2))  # ✅ True RMS
 
 # === Print comparison ===
 print("\n=== Model Comparison: Genesis Field vs ΛCDM (H(z)-Tight) ===")
@@ -141,7 +141,7 @@ summary = {
         "aic": float(aic_genesis),
         "bic": float(bic_genesis),
         "chi2_dof": float(chi2_genesis / (n_data - k_genesis)),
-        "residual_rms": float(rms_genesis),
+        "residual_rms": float(rms_genesis),  # ✅ Fixed RMS
         "n_params": k_genesis
     },
     "ΛCDM": {
@@ -150,7 +150,7 @@ summary = {
         "aic": float(aic_lcdm),
         "bic": float(bic_lcdm),
         "chi2_dof": float(chi2_lcdm / (n_data - k_lcdm)),
-        "residual_rms": float(rms_lcdm),
+        "residual_rms": float(rms_lcdm),  # ✅ Fixed RMS
         "n_params": k_lcdm
     }
 }

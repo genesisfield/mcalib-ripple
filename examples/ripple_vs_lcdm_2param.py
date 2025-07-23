@@ -54,18 +54,61 @@ Hz_fit = H_ripple(z, eps, H0)
 chi2_ripple = np.sum(((Hz - Hz_fit) / sigma) ** 2)
 AIC_ripple = chi2_ripple + 2 * 2
 BIC_ripple = chi2_ripple + 2 * np.log(len(z))
+resid_ripple = Hz - Hz_fit
+rms_ripple = np.sqrt(np.mean(resid_ripple**2))
+
+# === ΛCDM residual RMS
+Hz_lcdm_model = H0_lcdm * np.sqrt(Om_lcdm * (1 + z)**3 + (1 - Om_lcdm))
+resid_lcdm = Hz - Hz_lcdm_model
+rms_lcdm = np.sqrt(np.mean(resid_lcdm**2))
 
 # === Output summary ===
-print("✅ Final Ripple Fit (Ωₘ = 0.4, φ = 1.18, ω = 0.16, γ = 0.15):")
+print("✅ Final Ripple Fit (Ωₘ = 0.36, φ = 1.18, ω = 0.16, γ = 0.15):")
 print(f"ε = {eps:.4f} ± {perr[0]:.4f}")
 print(f"H₀ = {H0:.4f} ± {perr[1]:.4f}")
 print(f"χ² = {chi2_ripple:.2f}, AIC = {AIC_ripple:.2f}, BIC = {BIC_ripple:.2f}")
+print(f"RMS (Ripple) = {rms_ripple:.4f} km/s/Mpc")
 
 print("\nΛCDM Reference:")
 print(f"H₀ = {H0_lcdm:.4f}, Ωₘ = {Om_lcdm:.5f}")
 print(f"χ² = {chi2_lcdm:.2f}, AIC = {AIC_lcdm:.2f}, BIC = {BIC_lcdm:.2f}")
+print(f"RMS (ΛCDM)   = {rms_lcdm:.4f} km/s/Mpc")
 
-# === Plot ===
+# === Save summary to JSON
+summary = {
+    "Ripple_Model": {
+        "Ωₘ_locked": Om,
+        "ω": omega_star,
+        "ϕ": phi_star,
+        "γ": gamma_fixed,
+        "ε": float(eps),
+        "ε_err": float(perr[0]),
+        "H₀": float(H0),
+        "H₀_err": float(perr[1]),
+        "chi2": float(chi2_ripple),
+        "aic": float(AIC_ripple),
+        "bic": float(BIC_ripple),
+        "residual_rms": float(rms_ripple),
+        "n_params": 2
+    },
+    "ΛCDM": {
+        "Ωₘ": float(Om_lcdm),
+        "H₀": float(H0_lcdm),
+        "chi2": float(chi2_lcdm),
+        "aic": float(AIC_lcdm),
+        "bic": float(BIC_lcdm),
+        "residual_rms": float(rms_lcdm),
+        "n_params": 2
+    },
+    "n_data": len(z)
+}
+
+with open(os.path.join(out_dir, "ripple_vs_lcdm_2param_summary.json"), "w", encoding="utf-8") as f:
+    json.dump(summary, f, indent=2, ensure_ascii=False)
+
+print("✅ Saved ripple_vs_lcdm_2param_summary.json")
+
+# === Plot
 z_plot = np.linspace(0, 2.5, 400)
 def Hz_LCDM(z): return H0_lcdm * np.sqrt(Om_lcdm * (1 + z)**3 + (1 - Om_lcdm))
 

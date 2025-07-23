@@ -80,6 +80,7 @@ sigma_H0 = estimate_uncertainty(H0_vals, chi2_grid[imin, :])
 # === Save standardized JSON summary ===
 mu_best = mu_LCDM(z, best_Om, best_H0, M_locked)
 residuals = mu_obs - mu_best
+rms = np.sqrt(np.mean(residuals**2))  # ✅ Fixed RMS
 
 out_dir = os.path.join(script_dir, "..", "outputs")
 summary = {
@@ -98,7 +99,7 @@ summary = {
         "chi2_dof": float(best_chi2 / (n - 2)),
         "residuals": {
             "mean": float(np.mean(residuals)),
-            "rms": float(np.std(residuals))
+            "rms": float(rms)  # ✅ Correct RMS
         },
         "M_locked": M_locked,
         "n_params": 2
@@ -121,4 +122,3 @@ plt.legend()
 plt.tight_layout()
 plt.savefig(os.path.join(out_dir, "sn_lcdm_grid_fit_chi2.png"))
 plt.close()
-

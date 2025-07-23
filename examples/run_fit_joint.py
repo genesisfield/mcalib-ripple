@@ -73,6 +73,13 @@ n_total, k = n_sn + n_hz, 6
 aic = chi2_total + 2 * k
 bic = chi2_total + k * np.log(n_total)
 
+# === Compute RMS of residuals
+resid_sn = mu_obs - mu_fit
+resid_hz = Hz_obs - Hz_fit
+rms_sn = np.sqrt(np.mean(resid_sn**2))
+rms_hz = np.sqrt(np.mean(resid_hz**2))
+
+# === Print fit stats
 print("\n=== Joint Fit Statistics ===")
 print(f"χ²_SN       = {chi2_sn:.2f}")
 print(f"χ²_Hz       = {chi2_hz:.2f}")
@@ -80,6 +87,8 @@ print(f"χ²_total    = {chi2_total:.2f}")
 print(f"AIC         = {aic:.2f}")
 print(f"BIC         = {bic:.2f}")
 print(f"χ²/dof      = {chi2_total / (n_total - k):.3f}")
+print(f"RMS_SN      = {rms_sn:.5f} mag")
+print(f"RMS_Hz      = {rms_hz:.5f} km/s/Mpc")
 
 # === Load real ΛCDM joint fit
 lcdm_json_path = os.path.join(out_dir, "joint_lcdm_grid_fit_summary.json")
@@ -104,6 +113,10 @@ summary = {
         "aic": float(aic),
         "bic": float(bic),
         "chi2_dof": float(chi2_total / (n_total - k)),
+        "residual_rms": {
+            "mu": float(rms_sn),
+            "Hz": float(rms_hz)
+        },
         "n_params": k
     },
     "ΛCDM": lcdm_summary

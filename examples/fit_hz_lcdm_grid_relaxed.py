@@ -53,6 +53,10 @@ def estimate_uncertainty(axis_vals, chi2_slice):
 sigma_Om = estimate_uncertainty(Om_vals, chi2_grid[:, jmin])
 sigma_H0 = estimate_uncertainty(H0_vals, chi2_grid[imin, :])
 
+# === Compute proper RMS of residuals
+residuals = Hz - Hz_LCDM(z, best_H0, best_Om)
+rms = np.sqrt(np.mean(residuals**2))  # ✅ Fixed from np.std(...) to true RMS
+
 # === Save summary ===
 summary = {
     "ΛCDM": {
@@ -68,7 +72,7 @@ summary = {
         "aic": float(aic),
         "bic": float(bic),
         "chi2_dof": float(best_chi2 / (n - 2)),
-        "residual_rms": float(np.std(Hz - Hz_LCDM(z, best_H0, best_Om))),
+        "residual_rms": float(rms),  # ✅ Now correctly defined
         "n_params": 2
     }
 }

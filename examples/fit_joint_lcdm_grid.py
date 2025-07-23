@@ -90,11 +90,13 @@ def estimate_uncertainty(axis_vals, chi2_slice):
 sigma_Om = estimate_uncertainty(Om_vals, chi2_grid[:, jmin])
 sigma_H0 = estimate_uncertainty(H0_vals, chi2_grid[imin, :])
 
-# === Residuals ===
+# === Residuals and RMS
 mu_best = mu_LCDM(z_sn, best_Om, best_H0, M_locked)
 Hz_best = Hz_LCDM(z_hz, best_Om, best_H0)
 resid_mu = mu_obs - mu_best
 resid_Hz = Hz_obs - Hz_best
+rms_mu = np.sqrt(np.mean(resid_mu**2))     # ✅ Correct RMS for SN
+rms_Hz = np.sqrt(np.mean(resid_Hz**2))     # ✅ Correct RMS for Hz
 
 # === Save JSON summary ===
 out_dir = os.path.join(script_dir, "..", "outputs")
@@ -113,8 +115,8 @@ summary = {
         "bic": float(bic),
         "chi2_dof": float(best_chi2 / (n_total - 2)),
         "residuals": {
-            "mu_rms": float(np.std(resid_mu)),
-            "Hz_rms": float(np.std(resid_Hz))
+            "mu_rms": float(rms_mu),
+            "Hz_rms": float(rms_Hz)
         },
         "M_locked": M_locked,
         "n_params": 2,

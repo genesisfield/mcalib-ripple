@@ -30,43 +30,47 @@ Step 2 — Sanity Tests
 Run: python tests/test_mu0_model.py and python tests/test_dl_ripple.py  
 Confirms μ(z) and d_L(z) accuracy around z ≈ 0.1.
 
-Step 3 — SN ΛCDM Grid Fit  
+Step 3 — SN ΛCDM Grid Fit Relaxed  
 Run: python examples/fit_sn_lcdm_grid.py  
 Fits flat ΛCDM to SN data. Outputs include sn_lcdm_grid_fit_chi2.png and sn_lcdm_grid_fit_summary.json.
 
-Step 4 — H(z) ΛCDM Grid Fit  
-Run: python examples/fit_hz_lcdm_grid.py  
-Fits flat ΛCDM to H(z) using a grid scan of H₀. Produces hz_lcdm_grid_fit_chi2.png and summary.
+Step 4 — H(z) ΛCDM Grid Fit Relaxed 
+Run: python examples/fit_hz_lcdm_grid_relaxed.py  
+Fits flat ΛCDM to H(z) using a grid scan of H₀. Produces hz_lcdm_grid_relaxed_fit_chi2.png and summary.
 
-Step 5 — Joint ΛCDM Grid Fit  
+Step 5 — H(z) ΛCDM Grid Fit Tight
+Run: python examples/fit_hz_lcdm_grid_tight.py  
+Fits flat ΛCDM to H(z) using a grid scan of H₀. Produces hz_lcdm_grid_tight_fit_chi2.png and summary.
+
+Step 6 — Joint ΛCDM Grid Fit  
 Run: python examples/fit_joint_lcdm_grid.py  
 Performs ΛCDM fit on SN + H(z) combined. Outputs joint_lcdm_grid_fit_chi2.png and joint_lcdm_grid_fit_summary.json for model comparison.
 
-Step 6 — SN Ripple Fit  
+Step 7 — SN Ripple Fit  
 Run: python examples/run_fit_pantheon.py  
 Fits ripple model to Pantheon+SH0ES. Produces sn_corner_mcmc_pantheon.png, posteriors, residuals, and summary.
 
-Step 7 — H(z) Ripple Fit (Tight)  
+Step 8 — H(z) Ripple Fit (Tight)  
 Run: python examples/run_fit_hz_tight.py  
 Tests SN-calibrated ripple parameters on H(z) data.
 
-Step 8 — H(z) Ripple Fit (Relaxed)  
+Step 9 — H(z) Ripple Fit (Relaxed)  
 Run: python examples/run_fit_hz_relaxed.py  
 Fully free ripple fit on H(z). Outputs hz_corner_relaxed.png and model comparison stats.
 
-Step 9 — Joint Ripple Fit  
+Step 10 — Joint Ripple Fit  
 Run: python examples/run_fit_joint.py  
 Final ripple fit across SN + H(z). Produces joint_corner.png and joint_model_comparison_summary.json.
 
-Step 10 — Ripple vs ΛCDM Parameter Comparison  
+Step 11 — Ripple vs ΛCDM Parameter Comparison  
 Run: python examples/plot_ripple_parameter_comparison.py  
 Visualizes ripple and ΛCDM posterior differences across SN, H(z), and joint fits.
 
-Step 11 — Two-Parameter Ripple vs ΛCDM  
+Step 12 — Two-Parameter Ripple vs ΛCDM  
 Run: python examples/ripple_vs_lcdm_2param.py  
-Compares ripple vs ΛCDM in ε–ω space. Produces ripple_vs_lcdm_2param.png and ripple_2param_summary.json.
+Compares ripple vs ΛCDM in ε–ω space. Produces ripple_vs_lcdm_2param_hero.png and ripple_vs_lcdm_2param_summary.json.
 
-Step 12 — Sweep Parameter Space (Post-Fit Exploration)  
+Step 13 — Sweep Parameter Space (Post-Fit Exploration)  
 Run: python examples/sweep_fqmt_parameters.py  
 Sweeps ripple parameters ε, ω, γ, and φ over physical ranges. Produces heatmaps and chi² diagnostics to visualize ripple structure.
 
@@ -103,7 +107,7 @@ Corner Plots:
 Residuals & Comparisons:
 - sn_residuals_pantheon.png  
 - ripple_vs_lcdm_2param.png  
-- ripple_vs_lcdm_hz_2param.png  
+- ripple_vs_lcdm_hz_2param_hero.png  
 - ripple_param_comparison_barplot.png  
 - sweep_epsilon_grid_heatmap.png  
 
@@ -111,11 +115,12 @@ Model Summaries:
 - sn_mcmc_pantheon_summary.json  
 - hz_model_comparison_tight.json / relaxed.json  
 - joint_model_comparison_summary.json  
-- ripple_2param_summary.json  
+- ripple_vs_lcdm_2param_summary.json  
 
 ΛCDM Grids:
 - sn_lcdm_grid_fit_chi2.png / summary.json  
-- hz_lcdm_grid_fit_chi2.png / summary.json  
+- hz_lcdm_grid_relaxed_fit_chi2.png / summary.json 
+- hz_lcdm_grid_tight_fit_chi2.png / summary.json   
 - joint_lcdm_grid_fit_chi2.png / summary.json  
 
 Install:
