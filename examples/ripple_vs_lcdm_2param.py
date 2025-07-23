@@ -14,7 +14,7 @@ from fqmtmcmc.utils import load_hz_data
 out_dir = os.path.join(os.path.dirname(__file__), "..", "outputs")
 
 # === Load ΛCDM H(z)-grid fit JSON ===
-lcdm_path = os.path.join(out_dir, "hz_lcdm_grid_fit_summary.json")
+lcdm_path = os.path.join(out_dir, "hz_lcdm_grid_relaxed_fit_summary.json")
 with open(lcdm_path, encoding="utf-8") as f:
     lcdm = json.load(f)["ΛCDM"]
 
