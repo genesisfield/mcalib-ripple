@@ -73,10 +73,10 @@ summary = {
     }
 }
 
-with open(os.path.join(out_dir, "hz_lcdm_grid_fit_summary.json"), "w", encoding="utf-8") as f:
+with open(os.path.join(out_dir, "hz_lcdm_grid_relaxed_fit_summary.json"), "w", encoding="utf-8") as f:
     json.dump(summary, f, indent=2, ensure_ascii=False)
 
-print("✅ Saved hz_lcdm_grid_fit_summary.json")
+print("✅ Saved hz_lcdm_grid_relaxed_fit_summary.json")
 
 # === Plot contour ===
 plt.figure(figsize=(8, 6))
@@ -88,6 +88,6 @@ plt.ylabel(r"$\Omega_m$")
 plt.title(r"H(z)-only ΛCDM Grid Fit")
 plt.legend()
 plt.tight_layout()
-plt.savefig(os.path.join(out_dir, "hz_lcdm_grid_fit_chi2.png"))
+plt.savefig(os.path.join(out_dir, "hz_lcdm_grid_relaxed_fit_chi2.png"))
 plt.close()
-print("✅ Saved hz_lcdm_grid_fit_chi2.png")
+print("✅ Saved hz_lcdm_grid_relaxed_fit_chi2.png")
