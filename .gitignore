@@ -44,7 +44,6 @@ htmlcov/
 *.aux
 *.out
 *.log
-*.pdf
 *.bbl
 *.blg
 *.tex

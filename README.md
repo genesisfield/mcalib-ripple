@@ -1,3 +1,16 @@
+> 📌 **NOTE TO REVIEWERS**
+>
+> This repository contains the **official GENESISFIELDMCMC v1.1.4** release, under simultaneous review at:
+> - 📝 *Classical and Quantum Gravity* (CQG) — Theory + Results Paper
+> - 🧪 *Journal of Open Source Software* (JOSS) — Software Pipeline Submission
+>
+> 🔗 All figures, tables, and statistical results in the CQG paper are generated from this codebase.  
+> 🔁 All JOSS functionality and documentation reflects this version.  
+>
+> 📄 Final CQG submission PDF: [`paper CQQ/Genesis_Field_CQG_Submission_July23.pdf`](./paper%20CQQ/Genesis_Field_CQG_Submission_July23.pdf)  
+> 📎 Zenodo DOI: [10.5281/zenodo.16251890](https://doi.org/10.5281/zenodo.16251890)  
+> 🏷️ Version: `GENESISFIELDMCMC v1.1.4` (Released July 21, 2025)
+
 # GENESISFIELDMCMC: Ripple-Modulated Cosmological Inference in the Genesis Field Framework
 [![GitHub stars](https://img.shields.io/github/stars/genesisfield/genesisfieldmcmc?style=social)](https://github.com/genesisfield/genesisfieldmcmc/stargazers)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](#)
