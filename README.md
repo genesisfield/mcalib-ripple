@@ -6,8 +6,7 @@
 >
 > 🔗 All figures, tables, and statistical results in the CQG paper are generated from this codebase.  
 > 🔁 All JOSS functionality and documentation reflects this version.  
->
-> 📄 Final CQG submission PDF: [`paper CQQ/Genesis_Field_CQG_Submission_July23.pdf`](./paper%20CQQ/Genesis_Field_CQG_Submission_July23.pdf)  
+> 📄 Final CQG Submission PDF: [📥 Download `Genesis_Field_CQG_Submission_July23.pdf`](https://github.com/genesisfield/genesisfieldmcmc/raw/main/paper%20CQG/Genesis_Field_CQG_Submission_July23.pdf)
 > 📎 Zenodo DOI: [10.5281/zenodo.16251890](https://doi.org/10.5281/zenodo.16251890)  
 > 🏷️ Version: `GENESISFIELDMCMC v1.1.4` (Released July 21, 2025)
 
