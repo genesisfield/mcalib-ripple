@@ -1,24 +1,14 @@
 ---
-
 title: "GENESISFIELDMCMC: A Full Inference Pipeline for Ripple-Modulated Cosmologies Using Supernova and H(z) Data"
 authors:
-
-* name: Richard Greene
-  affiliation: 1
-  orcid: [https://orcid.org/0009-0002-2430-8184](https://orcid.org/0009-0002-2430-8184)
-  affiliations:
-* name: Genesis Field Institute, Chandler, AZ, USA
-  date: 2025-07-17
-  repository: [https://github.com/genesisfield/genesisfieldmcmc](https://github.com/genesisfield/genesisfieldmcmc)
-  keywords:
-* cosmology
-* supernovae
-* Hubble tension
-* ripple model
-* MCMC
-* ΛCDM comparison
-* observational inference
-
+  - name: Richard Greene
+    orcid: https://orcid.org/0009-0002-2430-8184
+    affiliation: 1
+affiliations:
+  - name: Genesis Field Institute, Chandler, AZ, USA
+    index: 1
+date: 2025-07-17
+bibliography: paper.bib
 ---
 
 ## Summary
