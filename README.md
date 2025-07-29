@@ -21,6 +21,17 @@ GENESISFIELDMCMC is a full-sequence cosmological inference pipeline for ripple-m
 
 The pipeline is falsifiable, empirical, and fully reproducible. All stages pass outputs (M values, JSON summaries, residuals) forward. Deduplication and fixed seeds ensure reproducibility.
 
+## 🗂 outputs/
+
+- `joint_model_comparison_summary.json`  
+- `joint_corner.png`  
+- `joint_lcdm_grid_fit_summary.json`  
+- `joint_lcdm_grid_fit_chi2.png`
+
+These are the canonical output files referenced in the RNAAS notes and the CQG manuscript for reviwer convenience. All values and figures can be regenerated using the provided pipeline and configuration files.
+
+> **Note:** Raw `.npy` chain files and `.log` outputs are not included in this repository, but are automatically generated when the pipeline is run locally. See the [Usage Instructions](#running-the-pipeline) for details.
+
 Quickstart:
 To run the full pipeline in one step:
 
