@@ -43,12 +43,19 @@ def main():
     np.save(os.path.join(out_dir, "sn_chain_mcmc_pantheon.npy"), sampler.get_chain())
     np.save(os.path.join(out_dir, "sn_log_prob_mcmc_pantheon.npy"), sampler.get_log_prob())
 
-    # === Corner plot ===
+   # === Corner plot (PDF only) ===
     samples = sampler.get_chain(discard=5000, thin=10, flat=True)
     labels_greek = ["Ωₘ", "ε", "ω", "ϕ", "γ", "H₀"]
-    fig = corner.corner(samples, labels=labels_greek, truths=np.median(samples, axis=0))
-    plt.savefig(os.path.join(out_dir, "sn_corner_mcmc_pantheon.png"))
-    plt.close()
+
+    fig = corner.corner(samples, labels=labels_greek,
+                    truths=np.median(samples, axis=0))
+    fig.tight_layout()
+    fig.savefig(os.path.join(out_dir, "sn_corner_mcmc_pantheon.pdf"),
+            format="pdf", bbox_inches="tight")
+    plt.close(fig)
+
+    print("✅ Saved corner plot (PDF)")
+
 
     # === Post-process stats ===
     best_fit = np.median(samples, axis=0)
@@ -61,17 +68,21 @@ def main():
     bic = chi2 + k * np.log(n)
     rms = np.sqrt(np.mean(residuals**2))  # ✅ Correct RMS calculation
 
-    # === Residual plot ===
-    plt.figure(figsize=(10, 4))
-    plt.errorbar(z, residuals, yerr=sigma_mu, fmt='o', ecolor='gray', alpha=0.8)
-    plt.axhline(0, color='red', linestyle='--')
-    plt.xlabel("Redshift $z$")
-    plt.ylabel("Residual (μ_obs − μ_model)")
-    plt.title(f"Residuals with Locked M = {M_locked}")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.savefig(os.path.join(out_dir, "sn_residuals_pantheon.png"))
-    plt.close()
+    # === Residual plot (PDF only) ===
+    fig, ax = plt.subplots(figsize=(10, 4))
+    ax.errorbar(z, residuals, yerr=sigma_mu, fmt='o', ecolor='gray', alpha=0.8)
+    ax.axhline(0, color='red', linestyle='--')
+    ax.set_xlabel(r"Redshift $z$")
+    ax.set_ylabel(r"Residual ($\mu_{\rm obs} - \mu_{\rm model}$)")
+    ax.set_title(f"Residuals with Locked M = {M_locked}")
+    ax.grid(True)
+    fig.tight_layout()
+    fig.savefig(os.path.join(out_dir, "sn_residuals_pantheon.pdf"),
+            format="pdf", bbox_inches="tight")
+    plt.close(fig)
+
+    print("✅ Saved residual plot (PDF)")
+
 
     # === Sanity check ===
     z_test = np.array([0.1])

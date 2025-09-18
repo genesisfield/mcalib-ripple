@@ -47,12 +47,18 @@ labels = ["Ωₘ", "ε", "ω", "ϕ", "γ", "H₀"]
 medians = np.median(samples, axis=0)
 stds = np.std(samples, axis=0)
 
-# === Save chains and corner plot
+# === Save chains and corner plot (PDF only)
 np.save(os.path.join(out_dir, "joint_chain_mcmc.npy"), sampler.get_chain())
 np.save(os.path.join(out_dir, "joint_log_prob_mcmc.npy"), sampler.get_log_prob())
+
 fig = corner.corner(samples, labels=labels, truths=medians)
-fig.savefig(os.path.join(out_dir, "joint_corner.png"))
-plt.close()
+fig.tight_layout()
+fig.savefig(os.path.join(out_dir, "joint_corner.pdf"),
+            format="pdf", bbox_inches="tight")
+plt.close(fig)
+
+print("✅ Saved joint MCMC chain/log-prob and PDF corner plot")
+
 
 # === Print best-fit
 print("\nBest-fit Genesis Field Parameters (Joint):")

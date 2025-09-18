@@ -86,14 +86,18 @@ print("\nBest-fit Genesis Field Parameters (Tight Fit):")
 for label, med, std in zip(labels, medians, stds):
     print(f"{label:>3} = {med: .5f} ± {std:.5f}")
 
-# === Save MCMC outputs ===
+# === Save MCMC outputs (PDF only) ===
 np.save(os.path.join(out_dir, "hz_chain_mcmc_tight.npy"), sampler.get_chain())
 np.save(os.path.join(out_dir, "hz_log_prob_mcmc_tight.npy"), sampler.get_log_prob())
+
 fig = corner.corner(samples, labels=labels, truths=medians)
-plt.tight_layout()
-plt.savefig(os.path.join(out_dir, "hz_corner_tight.png"))
-plt.close()
-print("✅ Saved MCMC chain, log-prob, and corner plot")
+fig.tight_layout()
+fig.savefig(os.path.join(out_dir, "hz_corner_tight.pdf"),
+            format="pdf", bbox_inches="tight")
+plt.close(fig)
+
+print("✅ Saved MCMC chain, log-prob, and corner plot (PDF)")
+
 
 # === ΛCDM fit with Ωₘ fixed ===
 def Hz_LCDM(z, H0):

@@ -63,5 +63,12 @@ for i, param in enumerate(labels):
 
 fig.suptitle("Ripple Parameter Summary Across Fits", fontsize=14)
 plt.tight_layout()
-plt.savefig(os.path.join(output_dir, "ripple_param_comparison_barplot.png"))
+
+# Save as PDF (vector, journal-ready)
+plt.savefig(os.path.join(output_dir, "ripple_param_comparison_barplot.pdf"),
+            format="pdf", bbox_inches="tight")
+
 plt.close()
+
+print("✅ Saved ripple_param_comparison_barplot.pdf")
+

@@ -67,14 +67,17 @@ labels = ["Ωₘ", "ε", "ω", "ϕ", "γ", "H₀"]
 medians = np.median(samples, axis=0)
 stds = np.std(samples, axis=0)
 
-# === Save MCMC output ===
+# === Save MCMC output (PDF only) ===
 np.save(os.path.join(out_dir, "hz_chain_mcmc_relaxed.npy"), sampler.get_chain())
 np.save(os.path.join(out_dir, "hz_log_prob_mcmc_relaxed.npy"), sampler.get_log_prob())
+
 fig = corner.corner(samples, labels=labels, truths=medians)
-plt.tight_layout()
-plt.savefig(os.path.join(out_dir, "hz_corner_relaxed.png"))
-plt.close()
-print("✅ Saved MCMC chain and corner plot")
+fig.tight_layout()
+fig.savefig(os.path.join(out_dir, "hz_corner_relaxed.pdf"),
+            format="pdf", bbox_inches="tight")
+plt.close(fig)
+
+print("✅ Saved MCMC chain/log-prob and PDF corner plot")
 
 # === Fit Statistics: Genesis ===
 Hz_fit_genesis = ripple_Hz(z, *medians)

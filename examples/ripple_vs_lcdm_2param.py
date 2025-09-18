@@ -110,7 +110,9 @@ print("✅ Saved ripple_vs_lcdm_2param_summary.json")
 
 # === Plot
 z_plot = np.linspace(0, 2.5, 400)
-def Hz_LCDM(z): return H0_lcdm * np.sqrt(Om_lcdm * (1 + z)**3 + (1 - Om_lcdm))
+
+def Hz_LCDM(z):
+    return H0_lcdm * np.sqrt(Om_lcdm * (1 + z)**3 + (1 - Om_lcdm))
 
 plt.figure(figsize=(9, 5))
 plt.errorbar(z, Hz, yerr=sigma, fmt='o', alpha=0.6, label='H(z) Data')
@@ -121,5 +123,11 @@ plt.ylabel('H(z) [km/s/Mpc]')
 plt.title("H(z) Comparison (Ripple Model: ε, H₀ Free; Others Fixed)")
 plt.legend()
 plt.tight_layout()
-plt.savefig(os.path.join(out_dir, "ripple_vs_lcdm_hz_2param_hero.png"))
+
+# Save as PDF (vector, journal-ready)
+plt.savefig(os.path.join(out_dir, "ripple_vs_lcdm_hz_2param_hero.pdf"),
+            format="pdf", bbox_inches="tight")
 plt.close()
+
+print("✅ Saved ripple_vs_lcdm_hz_2param_hero.pdf")
+
